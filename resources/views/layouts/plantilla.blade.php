@@ -14,8 +14,19 @@
         Devstagram
       </h3>
       <nav class="flex gap-3 items-center">
-        <a href="" class="text-sm uppercase font-bold ">Login</a>
-        <a href="/register" class="text-sm uppercase font-bold ">Crear cuenta</a>
+        @auth
+          <a href="{{ route('login') }}" class="text-sm uppercase font-bold flex gap-2 border p-2 hover:bg-gray-100">
+            <img src="{{ asset('images/camara-fotografica.png') }}" width="20px" alt="crear">
+              Publicar
+          </a>
+          <a href="{{ route('resgister') }}" class="text-sm uppercase font-bold ">Cerrar Sesión</a>         
+        @endauth
+
+        @guest
+          <a href="{{ route('login') }}" class="text-sm uppercase font-bold ">Login</a>
+          <a href="{{ route('resgister') }}" class="text-sm uppercase font-bold ">Crear cuenta</a>
+        @endguest
+        
       </nav>
     </div>
   </header>
