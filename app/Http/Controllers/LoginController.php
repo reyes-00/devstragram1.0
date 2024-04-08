@@ -19,7 +19,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($request->only('email', 'password'))) {
             return redirect()
-                ->route('muro');
+                ->route('post.index',auth()->user()->username);
         }
         else{
             return redirect()->route('login')

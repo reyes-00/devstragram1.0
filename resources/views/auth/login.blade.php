@@ -1,6 +1,6 @@
 @extends('layouts.plantilla')
 @section('titulo')
-    Login 
+    Login Inicia Sesión
 @endsection
 
 @section('contenido')
