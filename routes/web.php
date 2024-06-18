@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MuroController;
 use App\Http\Controllers\PostController;
@@ -8,7 +10,6 @@ use App\Http\Controllers\ImagenController;
 use App\Http\Controllers\BuscadorController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ComentarioController;
-
 
 Route::get('/', function () {
     return view('auth.login');
@@ -28,7 +29,7 @@ Route::get('/{user:username}/post',[PostController::class, 'index'])->name('post
 Route::post('/post',[PostController::class, 'store'])->name('post.store');
 Route::get('/{user:username}/show/{post:id}',[PostController::class, 'show'])->name('post.show');
 
-Route::post('/comentario',[ComentarioController::class, 'store'])->name('comentario.store');
+Route::post('/comentario/{post}/{user}',[ComentarioController::class, 'store'])->name('comentario.store');
 
 // Buscador
 Route::post('/buscador',[BuscadorController::class, 'buscador'])->name('buscador');

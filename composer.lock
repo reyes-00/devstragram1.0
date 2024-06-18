@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b29dcb008fa9022e0a87ae75722e4bd9",
+    "content-hash": "26c1dd970373b5e7b11a32a66febe374",
     "packages": [
         {
             "name": "brick/math",
@@ -3397,6 +3397,107 @@
                 }
             ],
             "time": "2023-11-08T05:53:05+00:00"
+        },
+        {
+            "name": "repat/laravel-validator-emojis",
+            "version": "0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/repat/laravel-validator-emojis.git",
+                "reference": "a9658e19b7c683c20c1fbed1645362c6f4788985"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/repat/laravel-validator-emojis/zipball/a9658e19b7c683c20c1fbed1645362c6f4788985",
+                "reference": "a9658e19b7c683c20c1fbed1645362c6f4788985",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
+                "php": ">=7.4",
+                "steppinghat/emoji-detector": "^1.2"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.17",
+                "phpunit/phpunit": "^9.5",
+                "spatie/ray": "^1.34"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Repat\\LaravelRules\\": "src/Repat/LaravelRules"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "repat",
+                    "email": "repat@repat.de"
+                }
+            ],
+            "description": "Laravel Validator for Emojis",
+            "homepage": "https://repat.de",
+            "keywords": [
+                "emoji",
+                "laravel",
+                "validation",
+                "validator"
+            ],
+            "support": {
+                "issues": "https://github.com/repat/laravel-validator-emojis/issues",
+                "source": "https://github.com/repat/laravel-validator-emojis/tree/0.3"
+            },
+            "time": "2024-04-02T10:13:02+00:00"
+        },
+        {
+            "name": "steppinghat/emoji-detector",
+            "version": "1.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SteppingHat/php-emoji-detector.git",
+                "reference": "6423437a790c12df26fb5f9643a2894beded4ebe"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SteppingHat/php-emoji-detector/zipball/6423437a790c12df26fb5f9643a2894beded4ebe",
+                "reference": "6423437a790c12df26fb5f9643a2894beded4ebe",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.5",
+                "symfony/var-dumper": "^5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SteppingHat\\EmojiDetector\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Javan Eskander",
+                    "homepage": "https://javaneskander.com"
+                }
+            ],
+            "description": "Detect and validate emoji in an input string",
+            "homepage": "https://github.com/steppinghat/emoji-detector",
+            "support": {
+                "issues": "https://github.com/SteppingHat/php-emoji-detector/issues",
+                "source": "https://github.com/SteppingHat/php-emoji-detector/tree/1.5.1"
+            },
+            "time": "2024-02-01T14:24:18+00:00"
         },
         {
             "name": "symfony/console",

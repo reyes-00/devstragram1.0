@@ -13,7 +13,7 @@ class RegisterController extends Controller
     }
 
     public function store(Request $request){
-        dd($request);
+        // dd($request);
         
         $this->validate($request, [
             'name' =>'required|string|max:255',
