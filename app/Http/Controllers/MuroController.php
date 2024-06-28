@@ -13,13 +13,12 @@ class MuroController extends Controller
         return $this->middleware('auth');
     }
     public function index(User $user){
-        $usuario = User::where('id', $user->id)->first();
         
-        $publicaciones = Post::where('user_id',auth()->user()->id)->get();
-       
+        $usuario_posts = Post::where('user_id', $user->id)->paginate(1);
+
         return view('muro.index',[
-            'usuario' => $usuario,
-            'publicaciones' => $publicaciones
+            'usuario_posts' => $usuario_posts,
+            'user' => $user,
         ]);
     }
 }
