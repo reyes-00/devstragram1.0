@@ -18,6 +18,7 @@ class LoginController extends Controller
         ]);
 
         if (Auth::attempt($request->only('email', 'password'))) {
+            // dd(Auth::attempt($request->only('email', 'password')));
             return redirect()
                 ->route('post.index',auth()->user()->username);
         }

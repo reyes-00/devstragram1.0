@@ -32,9 +32,26 @@
                    
                 </div>
                 <div class="p-4">
-                    <p>Publicaciones: <span class="font-bold">0</span></p>
-                    <p>Seguidores: <span class="font-bold">0</span></p>
-                    <p>Seguidos: <span class="font-bold">0</span></p>
+                    <p>Publicaciones: <span class="font-bold">{{ auth()->user()->posts->count() }}</span></p>
+                    <p>@choice('Seguidor | Seguidores ', $user->followers->count() )<span class="font-bold">{{$user->followers->count() }}</span></p>
+                    <p>Seguidos: <span class="font-bold">{{ $user->following->count() }}</span></p>
+                    @auth
+                        @if ($user->id != auth()->user()->id)
+                            @if (!$user->siguiendo(auth()->user()->id))
+                                <form action="{{ route('follow.store',$user) }}" method="POST">
+                                    @csrf
+                                    <input type="submit" class="p-2 my-2 cursor-pointer hover:bg-sky-700 uppercase bg-sky-600 text-white font-bold text-xs rounded" value="Seguir">
+                                </form>
+                            @else
+                                <form action="{{ route('follow.destroy',$user) }}" method="POST">
+                                    @method('DELETE')
+                                    @csrf
+                                    <input type="submit" class="p-2 my-2 cursor-pointer hover:bg-red-700 uppercase bg-red-600 text-white font-bold text-xs rounded" value="Dejar de Seguir ">
+                                </form>
+                            @endif
+                        @endif
+                    @endauth
+                    
                 </div>
             </div>
         </div>

@@ -48,11 +48,12 @@ class PerfilController extends Controller
             return back()->withErrors(['password' => 'La contraseña actual no es correcta']);
         }
 
+        /**Actualizar Usuario */
         $userUpdate = User::find($user->id);
         $userUpdate->username = $request->username;
         $userUpdate->imagen = $nombreImagen ?? auth()->user()->imagen ?? null;
         $userUpdate->email = $request->email;
-        $userUpdate->password = Hash::check($request->new_password, auth()->user()->password);
+        $userUpdate->password = Hash::make($request->new_password);
        
         $userUpdate->save();
 

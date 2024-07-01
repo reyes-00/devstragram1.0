@@ -8,13 +8,16 @@
   @vite('resources/css/app.css')
   @vite('resources/js/app.js')
   @stack('css')
+  @livewireStyles
   <title>DevsTagram - @yield('titulo')</title>
 </head>
 <body class="bg-gray-100">
   <header class="p-5 border-b bg-white shadow">
     <div class="container mx-auto flex justify-between items-center">
       <h3 class="text-3xl font-black">
-        Devstagram
+        <a href="{{ route('home') }}">
+          Devstagram
+        </a>
       </h3>
       <div>
         <input type="text" name="buscador" id="buscador" class="border p-2 rounded" placeholder="Buscar">
@@ -79,5 +82,6 @@
         consultarApi(busqueda);
     });
   </script>
+  @livewireScripts
 </body>
 </html>

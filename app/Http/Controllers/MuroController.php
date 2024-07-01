@@ -14,7 +14,7 @@ class MuroController extends Controller
     }
     public function index(User $user){
         
-        $usuario_posts = Post::where('user_id', $user->id)->paginate(1);
+        $usuario_posts = Post::where('user_id', $user->id)->latest()->paginate(1);
 
         return view('muro.index',[
             'usuario_posts' => $usuario_posts,

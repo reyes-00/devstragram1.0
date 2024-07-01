@@ -4,22 +4,22 @@
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\MuroController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\FollowController;
 use App\Http\Controllers\ImagenController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\BuscadorController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ComentarioController;
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+Route::get('/home', HomeController::class)->name('home');
 
 
-Route::get('/login',[LoginController::class, 'index'])->name('login');
+Route::get('/',[LoginController::class, 'index'])->name('login');
 Route::post('/login',[LoginController::class, 'store'])->name('login.store');
 Route::get('/register',[RegisterController::class, 'index'])->name('resgister');
 Route::post('/register',[RegisterController::class, 'store'])->name('register.store');
@@ -35,13 +35,18 @@ Route::delete('/destroy/{post:id}',[PostController::class, 'destroy'])->name('po
 
 //Comentarios
 Route::post('/comentario/{user}/{post}',[ComentarioController::class, 'store'])->name('comentario.store');
-// Likes
-Route::post('/{post}/{user}',[LikeController::class, 'store'])->name('likes.store');
-Route::delete('/{post}/{user}',[LikeController::class, 'destroy'])->name('likes.destroy');
+
 
 // Perfil
 Route::get('/perfil/edit/{user:username}',[PerfilController::class,'edit'])->name('perfil.edit');
 Route::post('/perfil/edit/{user:username}',[PerfilController::class,'update'])->name('perfil.update');
+
+// Follow
+Route::post('follow/{user}',[FollowController::class, 'store'])->name('follow.store');
+Route::delete('unfollow/{user}',[FollowController::class, 'destroy'])->name('follow.destroy');
+// Likes
+Route::post('/{post}/{user}',[LikeController::class, 'store'])->name('likes.store');
+Route::delete('/{post}/{user}',[LikeController::class, 'destroy'])->name('likes.destroy');
 
 // Buscador
 Route::post('/buscador',[BuscadorController::class, 'buscador'])->name('buscador');
